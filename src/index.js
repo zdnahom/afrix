@@ -1,14 +1,13 @@
-import "./style.css";
-import { getMovies } from "./modules/store/API.js";
+import './style.css';
+import getMovies from './modules/store/API.js';
 
-const moviesList = document.querySelector(".movies");
+const moviesList = document.querySelector('.movies');
 const movies = getMovies();
 const populateData = async (data) => {
   const moviesData = await data;
-  console.log(moviesData)
   moviesData.forEach((item) => {
-    let movieCard = document.createElement("div");
-    movieCard.className = "movie-card";
+    const movieCard = document.createElement('div');
+    movieCard.className = 'movie-card';
     movieCard.innerHTML = `
         <img src=${item.image.medium} alt="Movie pic"/>
         <div>
