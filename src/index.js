@@ -1,19 +1,25 @@
-import './style.css';
+import "./style.css";
+import { getMovies } from "./modules/store/API.js";
 
-const moviesList=document.querySelector('.movies')
-
-const populateData=(data)=>{
-    data.forEach((item)=>{
-        let movieCard=document.createElement('div')
-        movieCard.className="movieCard"
-        movieCard.innerHTML=`
-        <img></img>
+const moviesList = document.querySelector(".movies");
+const movies = getMovies();
+const populateData = async (data) => {
+  const moviesData = await data;
+  console.log(moviesData)
+  moviesData.forEach((item) => {
+    let movieCard = document.createElement("div");
+    movieCard.className = "movie-card";
+    movieCard.innerHTML = `
+        <img src=${item.image.medium} alt="Movie pic"/>
         <div>
-        <p>Avatar 2022</p>
+        <p class="movie-title">${item.name}</p>
+        <i class="fa-regular fa-heart"></i>
         </div>
-        <button type='button'>comments</button>
-        `
-        moviesList.appendChild(movieCard)
-    })
-}
+        <p class="likes">5 likes</p>
+        <button type='button' class="comment-button">comments</button>
+        `;
+    moviesList.appendChild(movieCard);
+  });
+};
 
+populateData(movies);
