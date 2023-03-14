@@ -1,30 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico:wght@300;400;700;900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-.logo{
-  color: white ;
+
+.logo {
+  color: white;
   margin-left: 20px;
   font-family: "Pacifico";
 }
-.Logo-2{
+
+.Logo-2 {
   color: red;
 }
-.logo-setup{
+
+.logo-setup {
   display: flex;
 }
-.header{
+
+.header {
   background-color: black;
   display: flex;
   gap: 60rem;
 }
-.items{
+
+.items {
   color: red;
   display: flex;
 }
-.item-list{
+
+.item-list {
   list-style: none;
   position: relative;
   float: left;
@@ -34,14 +41,17 @@
   align-items: center;
   cursor: pointer;
 }
-.item-list li:hover{
+
+.item-list li:hover {
   color: azure;
 }
-.footer{
+
+.footer {
   background-color: rgb(13, 13, 13);
   width: 100%;
 }
-.footer-items{
+
+.footer-items {
   display: flex;
   gap: 60rem;
   align-items: center;
