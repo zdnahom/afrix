@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>African best movie website homepage</title>
 </head>
-<body>
-    <h1>Afrix movies</h1>
+<body onload=todayDate()>
+   <header class="header">
+   
+        <h1 class="logo">Afrix<span class="Logo-2">  Movies</span> </h1> 
+        <div class="items">
+            <ul class="item-list">
+                <li>Movies</li>
+                <li>Most Streamed</li>
+                <li>Subscribe</li>
+            </ul>
+        </div>
+   </header>
+
+<main>
+    <div class="movies">
+        <h1>Card</h1>
+    </div>
+</main>
+
+
+   <footer class="footer">
+    <div class="footer-items">
+        <p>Afrix Movies </p>
+        <p>Produced by Afrix Movies. © <em id="date"></em></p>
+    </div>
+   </footer>
+
+   <script>
+    function todayDate(){
+       var d = new Date();
+       var n = d.getFullYear() + "  ";
+       return document.getElementById("date").innerHTML = n;
+     }
+  </script>
 </body>
 </html>
