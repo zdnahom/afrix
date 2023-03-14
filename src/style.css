@@ -9,7 +9,7 @@
 .logo {
   color: white;
   margin-left: 20px;
-  font-family: "Pacifico";
+  font-family: "Pacifico", serif;
 }
 
 .Logo-2 {
@@ -44,6 +44,55 @@
 
 .item-list li:hover {
   color: azure;
+}
+
+.main {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3%;
+}
+
+.main h1 {
+  color: white;
+  padding: 2%;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 15px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: white;
+}
+
+.movie-card div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-title {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.likes {
+  align-self: flex-end;
+}
+
+.comment-button {
+  padding: 5px;
+  border-radius: 0.5em;
+  background-color: black;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .footer {
