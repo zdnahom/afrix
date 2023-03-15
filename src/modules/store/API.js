@@ -16,3 +16,15 @@ export const getLikes = async () => {
   const data = await res.json();
   return data;
 };
+
+export const getComments = async (id) => {
+  let data = [];
+
+  const res = await fetch(
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/iO26MOgyDZzMsAn4LSwJ/comments?item_id=${id}`,
+  );
+  if (res.status === 200) {
+    data = await res.json();
+  }
+  return data;
+};
