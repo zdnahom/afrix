@@ -1,7 +1,9 @@
 import './style.css';
-import getMovies from './modules/store/API.js';
+
+import { getMovies, getMovieDetail } from './modules/store/API.js';
 
 const moviesList = document.querySelector('.movies');
+const popup = document.querySelector('.popup');
 const movies = getMovies();
 const populateData = async (data) => {
   const moviesData = await data;
@@ -15,15 +17,15 @@ const populateData = async (data) => {
         <i class="fa-regular fa-heart"></i>
         </div>
         <p class="likes">5 likes</p>
-        <button type='button' class="comment-button">comments</button>
+        <button type='button' class="comment-button" id = ${item.id}>comments</button>
         `;
     moviesList.appendChild(movieCard);
   });
 };
-const openPopup=async (id)=>{
-  console.log(`${id} : popup opened`)
-  const movie= await getMovieDetail(id)
-  popup.innerHTML=`
+const openPopup = async (id) => {
+  console.log(`${id} : popup opened`);
+  const movie = await getMovieDetail(id);
+  popup.innerHTML = `
   <div class="popup-content">
   <div class="image-container">
     <img
@@ -37,7 +39,7 @@ const openPopup=async (id)=>{
   <h2>${movie.name}</h2>
   <ul class="movie-info">
     <li><span>Network</span> : ${movie.network.name}</li>
-    <li><span>County</span> : ${movie.network.country['name']}</li>
+    <li><span>County</span> : ${movie.network.country.name}</li>
     <li><span>Genres</span> : ${movie.genres}</li>
     <li><span>Status</span> : ${movie.status}</li>
   </ul>
@@ -54,7 +56,16 @@ const openPopup=async (id)=>{
     <button type="submit">Comment</button>
   </form>
   </div>
-  `
-  popup.classList.remove('hide')
-}
+  `;
+  popup.classList.remove('hide');
+};
+
+moviesList.addEventListener('click', (e) => {
+  openPopup(e.target.id);
+});
+popup.addEventListener('click', (e) => {
+  if (e.target.parentNode.className === 'close-detail') {
+    popup.classList.toggle('hide');
+  }
+});
 populateData(movies);
