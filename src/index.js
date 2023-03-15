@@ -1,6 +1,8 @@
 import './style.css';
 
-import { getMovies, getMovieDetail, getLikes } from './modules/store/API.js';
+import {
+  getMovies, getMovieDetail, getLikes, getComments,
+} from './modules/store/API.js';
 
 const moviesList = document.querySelector('.movies');
 const popup = document.querySelector('.popup');
@@ -25,7 +27,6 @@ const moviesDataCollection = async (movies, likes) => {
   });
   return moviesData;
 };
-
 const populateData = async (data) => {
   const moviesData = await data;
   moviesData.forEach((item) => {
@@ -44,7 +45,11 @@ const populateData = async (data) => {
   });
 };
 const openPopup = async (id) => {
+  let com = await getComments(id);
   const movie = await getMovieDetail(id);
+  if (com.length) {
+    com = com.map((item) => `<li>${item.creation_date} ${item.username} : ${item.comment}</li>`);
+  }
   popup.innerHTML = `
   <div class="popup-content">
   <div class="image-container">
@@ -63,11 +68,9 @@ const openPopup = async (id) => {
     <li><span>Genres</span> : ${movie.genres}</li>
     <li><span>Status</span> : ${movie.status}</li>
   </ul>
-  <h3>Comments(2)</h3>
+  <h3>Comments(${com.length})}</h3>
   <ul>
-    <li>03/11/2021 Alex : The Cooles anime that I've watched</li>
-    <li>03/11/2021 Alex : The Cooles anime that I've watched</li>
-    <li>03/11/2021 Alex : The Cooles anime that I've watched</li>
+   ${com}
   </ul>
   <h3>Add Comment</h3>
   <form action="" class="form">
