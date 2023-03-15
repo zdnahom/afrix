@@ -34,7 +34,7 @@ export const addLike = async (id) => {
     "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/iO26MOgyDZzMsAn4LSwJ/likes",
     {
       method: "POST",
-      body: JSON.stringify({ item_id: id }),
+      body: JSON.stringify({ item_id: Number(id) }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
