@@ -8,3 +8,12 @@ export const getMovieDetail = async (id) => {
   const data = await res.json();
   return data;
 };
+
+export const getLikes = async () => {
+  const res = await fetch(
+    "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/iO26MOgyDZzMsAn4LSwJ/likes"
+  );
+  const data = await res.json();
+  console.log(data)
+  return data;
+};
