@@ -1,36 +1,36 @@
-import "./style.css";
+import './style.css';
 
-import { getMovies, getMovieDetail, getLikes } from "./modules/store/API.js";
+import { getMovies, getMovieDetail, getLikes } from './modules/store/API.js';
 
-const moviesList = document.querySelector(".movies");
-const popup = document.querySelector(".popup");
+const moviesList = document.querySelector('.movies');
+const popup = document.querySelector('.popup');
 const movies = getMovies();
 const likes = getLikes();
 
-const moviesDataCollection = async (movies,likes) => {
-  let movieLikes=await likes
-  let moviesData=await movies
+const moviesDataCollection = async (movies, likes) => {
+  const movieLikes = await likes;
+  let moviesData = await movies;
   moviesData = moviesData.map((item) => {
-      let foundMovie = movieLikes.find(element => element.item_id==item.id) || 0 
-      return {  
-        id: item.id,
-        name: item.name,
-        image:item.image,
-        network:item.network.name,
-        country:item.network.country.name,
-        genres:item.genres,
-        status:item.status,
-        likes:foundMovie.likes||0
-      };
+    const foundMovie = movieLikes.find((element) => element.item_id === item.id) || 0;
+    return {
+      id: item.id,
+      name: item.name,
+      image: item.image,
+      network: item.network.name,
+      country: item.network.country.name,
+      genres: item.genres,
+      status: item.status,
+      likes: foundMovie.likes || 0,
+    };
   });
-  return moviesData
+  return moviesData;
 };
 
 const populateData = async (data) => {
   const moviesData = await data;
   moviesData.forEach((item) => {
-    const movieCard = document.createElement("div");
-    movieCard.className = "movie-card";
+    const movieCard = document.createElement('div');
+    movieCard.className = 'movie-card';
     movieCard.innerHTML = `
         <img src=${item.image.medium} alt="Movie pic"/>
         <div>
@@ -77,16 +77,16 @@ const openPopup = async (id) => {
   </form>
   </div>
   `;
-  popup.classList.remove("hide");
+  popup.classList.remove('hide');
 };
 
-moviesList.addEventListener("click", (e) => {
+moviesList.addEventListener('click', (e) => {
   openPopup(e.target.id);
 });
-popup.addEventListener("click", (e) => {
-  if (e.target.parentNode.className === "close-detail") {
-    popup.classList.toggle("hide");
+popup.addEventListener('click', (e) => {
+  if (e.target.parentNode.className === 'close-detail') {
+    popup.classList.toggle('hide');
   }
 });
 
-populateData(moviesDataCollection(movies,likes));
+populateData(moviesDataCollection(movies, likes));
