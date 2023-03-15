@@ -23,7 +23,6 @@ const populateData = async (data) => {
   });
 };
 const openPopup = async (id) => {
-  console.log(`${id} : popup opened`);
   const movie = await getMovieDetail(id);
   popup.innerHTML = `
   <div class="popup-content">
