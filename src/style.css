@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .logo {
   color: white;
   margin-left: 20px;
@@ -23,27 +27,25 @@
 .header {
   background-color: black;
   display: flex;
-  gap: 60rem;
+  justify-content: space-between;
 }
 
 .items {
-  color: red;
+  color: azure;
   display: flex;
 }
 
 .item-list {
   list-style: none;
-  position: relative;
-  float: left;
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  gap: 3em;
   align-items: center;
   cursor: pointer;
+  margin-right: 1em;
 }
 
 .item-list li:hover {
-  color: azure;
+  color: red;
 }
 
 .main {
@@ -55,21 +57,21 @@
 }
 
 .main h1 {
-  color: white;
+  color: azure;
   padding: 2%;
 }
 
 .movies {
   display: grid;
   grid-template-columns: auto auto auto;
-  gap: 15px;
+  gap: 1em;
 }
 
 .movie-card {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: white;
+  color: azure;
 }
 
 .movie-card div {
@@ -90,7 +92,7 @@
   padding: 5px;
   border-radius: 0.5em;
   background-color: black;
-  color: white;
+  color: azure;
   font-size: 1em;
   cursor: pointer;
 }
@@ -102,8 +104,98 @@
 
 .footer-items {
   display: flex;
-  gap: 60rem;
+  justify-content: space-around;
+  padding: 2%;
   align-items: center;
   color: red;
   font-family: sans-serif;
+}
+
+.popup {
+  background-color: red;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  z-index: 2;
+  padding: 100px 0;
+}
+
+.popup-content {
+  background-color: black;
+  width: 45%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  gap: 15px;
+  color: azure;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.image-container img {
+  width: 90%;
+}
+
+.close-detail {
+  align-self: flex-start;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.close-detail i {
+  font-size: 3em;
+  font-weight: 900;
+  color: azure;
+}
+
+.movie-info {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1.5em;
+  list-style: none;
+}
+
+.movie-info span {
+  color: red;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input {
+  width: 70%;
+  outline: none;
+  padding: 8px;
+}
+
+.form textarea {
+  outline: none;
+}
+
+.form button {
+  align-self: flex-start;
+  padding: 8px;
+  background-color: red;
+  color: azure;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.hide {
+  display: none;
 }
