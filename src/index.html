@@ -21,6 +21,34 @@
         </ul>
       </div>
     </header>
+<div class="overlay">
+  <div class="overlay-content">
+    <div class="close-container"><span class="close-modal"><i class="fa-sharp fa-solid fa-xmark"></i><span></div>
+    <div class="flex">
+      <div class="overlay-image">
+        <img src=${data.image.original} alt="">
+      </div>
+      <div>
+        <h2>Name</h2>
+        <p></p>
+        <h3></h3>
+        <ul class="comments-list">
+          <li>title 1</li>
+          <li>title 2</li>
+          <li>title 3</li>
+        </ul>
+      </div>
+    </div>
+    <form action="#">
+      <h3>Write your comment here </h3>
+      <input class="form_item" id="name" type="text" name="name" placeholder="your name" maxlength="30" required>
+      <input class="form_item" id="start-date" type="text" name="start-date" placeholder="your insights" required>
+      <div id="error-message"></div>
+      <button type="submit" class="form_button" >Comment</button>
+    </form>
+  </div>
+</div>
+    
 
     <main class="main">
       <h1>Best Website to get your favorite Movies</h1>
