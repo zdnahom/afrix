@@ -11,6 +11,7 @@ body {
 }
 
 .logo {
+  font-size: 2em;
   color: white;
   margin-left: 20px;
   font-family: "Pacifico", serif;
