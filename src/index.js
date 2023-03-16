@@ -39,7 +39,7 @@ const populateData = async (data) => {
         <p class="movie-title">${item.name}</p>
         <i class="fa-regular fa-heart like-button" id = ${item.id}></i>
         </div>
-        <p class="likes"><span id="likes-${item.id}">${item.likes}</span> ${likeText}</p>
+        <p class="likes"><span id="likes-${item.id}">${item.likes}</span> <span>${likeText}</span></p>
         <button type='button' class="comment-button" id=${item.id}>comments</button>
         `;
     moviesList.appendChild(movieCard);
@@ -87,8 +87,9 @@ const openPopup = async (id) => {
 moviesList.addEventListener('click', (e) => {
   if(e.target.className.includes("like-button")){
     addLike(e.target.id)
-    let likeSpan=document.querySelector(`#likes-${e.target.id}`)
-    likeSpan.textContent= Number(likeSpan.textContent) + 1
+    const likeCountSpan=document.querySelector(`#likes-${e.target.id}`)
+    likeCountSpan.textContent= Number(likeCountSpan.textContent) + 1
+    likeCountSpan.nextElementSibling.textContent=Number(likeCountSpan.textContent) > 1 ? 'likes':'like'
   }
  if(e.target.className === 'comment-button'){
     openPopup(e.target.id)
