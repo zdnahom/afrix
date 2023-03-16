@@ -31,14 +31,14 @@ export const getComments = async (id) => {
 
 export const addLike = async (id) => {
   const res = await fetch(
-    "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/iO26MOgyDZzMsAn4LSwJ/likes",
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/iO26MOgyDZzMsAn4LSwJ/likes',
     {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({ item_id: Number(id) }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        'Content-type': 'application/json; charset=UTF-8',
       },
-    }
+    },
   );
   return res;
 };

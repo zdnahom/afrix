@@ -1,7 +1,11 @@
 import './style.css';
 
 import {
-  getMovies, getMovieDetail, getLikes, getComments,addLike
+  getMovies,
+  getMovieDetail,
+  getLikes,
+  getComments,
+  addLike,
 } from './modules/store/API.js';
 
 const moviesList = document.querySelector('.movies');
@@ -13,7 +17,9 @@ const moviesDataCollection = async (movies, likes) => {
   const movieLikes = await likes;
   let moviesData = await movies;
   moviesData = moviesData.map((item) => {
-    const foundMovie = movieLikes.find((element) => Number(element.item_id) === Number(item.id)) || 0;
+    const foundMovie = movieLikes.find(
+      (element) => Number(element.item_id) === Number(item.id),
+    ) || 0;
     return {
       id: item.id,
       name: item.name,
@@ -30,7 +36,7 @@ const moviesDataCollection = async (movies, likes) => {
 const populateData = async (data) => {
   const moviesData = await data;
   moviesData.forEach((item) => {
-    const likeText=item.likes > 1 ? 'likes':'like'
+    const likeText = item.likes > 1 ? 'likes' : 'like';
     const movieCard = document.createElement('div');
     movieCard.className = 'movie-card';
     movieCard.innerHTML = `
@@ -49,7 +55,9 @@ const openPopup = async (id) => {
   let comments = await getComments(id);
   const movie = await getMovieDetail(id);
   if (comments.length) {
-    comments = comments.map((item) => `<li>${item.creation_date} ${item.username} : ${item.comment}</li>`);
+    comments = comments.map(
+      (item) => `<li>${item.creation_date} ${item.username} : ${item.comment}</li>`,
+    );
   }
   popup.innerHTML = `
   <div class="popup-content">
@@ -85,14 +93,14 @@ const openPopup = async (id) => {
 };
 
 moviesList.addEventListener('click', (e) => {
-  if(e.target.className.includes("like-button")){
-    addLike(e.target.id)
-    const likeCountSpan=document.querySelector(`#likes-${e.target.id}`)
-    likeCountSpan.textContent= Number(likeCountSpan.textContent) + 1
-    likeCountSpan.nextElementSibling.textContent=Number(likeCountSpan.textContent) > 1 ? 'likes':'like'
+  if (e.target.className.includes('like-button')) {
+    addLike(e.target.id);
+    const likeCountSpan = document.querySelector(`#likes-${e.target.id}`);
+    likeCountSpan.textContent = Number(likeCountSpan.textContent) + 1;
+    likeCountSpan.nextElementSibling.textContent = Number(likeCountSpan.textContent) > 1 ? 'likes' : 'like';
   }
- if(e.target.className === 'comment-button'){
-    openPopup(e.target.id)
+  if (e.target.className === 'comment-button') {
+    openPopup(e.target.id);
   }
 });
 popup.addEventListener('click', (e) => {
