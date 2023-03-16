@@ -29,7 +29,7 @@ const openPopup = async (id) => {
       <li><span>Genres</span> : ${movie.genres}</li>
       <li><span>Status</span> : ${movie.status}</li>
     </ul>
-    <h3>Comments(${comments.length})</h3>
+    <h3 class = "comment-countText">Comments(<span>0</span>)</h3>
     <ul class ="comments-container">
      ${comments}
     </ul>
@@ -60,6 +60,8 @@ const openPopup = async (id) => {
     const commentLi = document.createElement('li');
     commentLi.innerHTML = `${createdAt} ${userName.value} : ${commentText.value}`;
     commentsContainer.appendChild(commentLi);
+    const totalCommentsText = document.querySelector('.comment-countText span');
+    totalCommentsText.textContent = Number(totalCommentsText.textContent) + 1;
   });
 };
 export default openPopup;

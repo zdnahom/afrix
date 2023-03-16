@@ -4,6 +4,7 @@ import { addLike } from './modules/store/API.js';
 import moviesDataCollection from './modules/store/Data.js';
 import openPopup from './modules/popup.js';
 import movieCounter from './modules/movieCounter.js';
+import commentCounter from './modules/commentCounter.js';
 
 const moviesList = document.querySelector('.movies');
 const moviesCountDisplayer = document.querySelector('.movies-count');
@@ -33,7 +34,7 @@ const initializeApp = async () => {
   moviesCountDisplayer.textContent = totalMovies;
 };
 
-moviesList.addEventListener('click', (e) => {
+moviesList.addEventListener('click', async (e) => {
   if (e.target.className.includes('like-button')) {
     addLike(e.target.id);
     const likeCountSpan = document.querySelector(`#likes-${e.target.id}`);
@@ -41,7 +42,10 @@ moviesList.addEventListener('click', (e) => {
     likeCountSpan.nextElementSibling.textContent = Number(likeCountSpan.textContent) > 1 ? 'likes' : 'like';
   }
   if (e.target.className === 'comment-button') {
-    openPopup(e.target.id);
+    await openPopup(e.target.id);
+    const totalComments = commentCounter();
+    const commentText = document.querySelector('.comment-countText span');
+    commentText.textContent = totalComments;
   }
 });
 
