@@ -1,7 +1,7 @@
 import './style.css';
 
 import {
-  getMovies, getMovieDetail, getLikes, getComments,
+  getMovies, getMovieDetail, getLikes, getComments,addLike
 } from './modules/store/API.js';
 
 const moviesList = document.querySelector('.movies');
@@ -13,7 +13,7 @@ const moviesDataCollection = async (movies, likes) => {
   const movieLikes = await likes;
   let moviesData = await movies;
   moviesData = moviesData.map((item) => {
-    const foundMovie = movieLikes.find((element) => element.item_id === item.id) || 0;
+    const foundMovie = movieLikes.find((element) => Number(element.item_id) === Number(item.id)) || 0;
     return {
       id: item.id,
       name: item.name,
@@ -36,19 +36,19 @@ const populateData = async (data) => {
         <img src=${item.image.medium} alt="Movie pic"/>
         <div>
         <p class="movie-title">${item.name}</p>
-        <i class="fa-regular fa-heart"></i>
+        <i class="fa-regular fa-heart like-button" id = ${item.id}></i>
         </div>
-        <p class="likes">${item.likes} likes</p>
-        <button type='button' class="comment-button" id = ${item.id}>comments</button>
+        <p class="likes"><span id="likes-${item.id}">${item.likes}</span> likes</p>
+        <button type='button' class="comment-button" id=${item.id}>comments</button>
         `;
     moviesList.appendChild(movieCard);
   });
 };
 const openPopup = async (id) => {
-  let com = await getComments(id);
+  let comments = await getComments(id);
   const movie = await getMovieDetail(id);
-  if (com.length) {
-    com = com.map((item) => `<li>${item.creation_date} ${item.username} : ${item.comment}</li>`);
+  if (comments.length) {
+    comments = comments.map((item) => `<li>${item.creation_date} ${item.username} : ${item.comment}</li>`);
   }
   popup.innerHTML = `
   <div class="popup-content">
@@ -68,9 +68,9 @@ const openPopup = async (id) => {
     <li><span>Genres</span> : ${movie.genres}</li>
     <li><span>Status</span> : ${movie.status}</li>
   </ul>
-  <h3>Comments(${com.length})}</h3>
+  <h3>Comments(${comments.length})}</h3>
   <ul>
-   ${com}
+   ${comments}
   </ul>
   <h3>Add Comment</h3>
   <form action="" class="form">
@@ -84,12 +84,18 @@ const openPopup = async (id) => {
 };
 
 moviesList.addEventListener('click', (e) => {
-  openPopup(e.target.id);
+  if(e.target.className.includes("like-button")){
+    addLike(e.target.id)
+    let likeSpan=document.querySelector(`#likes-${e.target.id}`)
+    likeSpan.textContent= Number(likeSpan.textContent) + 1
+  }
+ if(e.target.className === 'comment-button'){
+    openPopup(e.target.id)
+  }
 });
 popup.addEventListener('click', (e) => {
   if (e.target.parentNode.className === 'close-detail') {
     popup.classList.toggle('hide');
   }
 });
-
 populateData(moviesDataCollection(movies, likes));
