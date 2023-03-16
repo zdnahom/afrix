@@ -28,3 +28,17 @@ export const getComments = async (id) => {
   }
   return data;
 };
+
+export const addLike = async (id) => {
+  const res = await fetch(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/iO26MOgyDZzMsAn4LSwJ/likes',
+    {
+      method: 'POST',
+      body: JSON.stringify({ item_id: Number(id) }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    },
+  );
+  return res;
+};
