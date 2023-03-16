@@ -1,4 +1,4 @@
-import movieCounter from '../modules/movieCounter'
+import movieCounter from '../modules/movieCounter.js';
 
 // Set up our document body
 document.body.innerHTML = `
@@ -11,23 +11,23 @@ document.body.innerHTML = `
 </main>
 `;
 
-describe('movies counter',()=>{
-    it('check total movies found at the website',()=>{
-        //act
-        const totalMovies = movieCounter()
+describe('movies counter', () => {
+  it('check total movies found at the website', () => {
+    // act
+    const totalMovies = movieCounter();
 
-        //assert
-        expect(totalMovies).toBe(2)
-    })
-    it('check if no movies found at the website ',()=>{
-        //arrange
-        const moviesContainer = document.querySelector('.movies')
-        moviesContainer.innerHTML=""
+    // assert
+    expect(totalMovies).toBe(2);
+  });
+  it('check if no movies found at the website ', () => {
+    // arrange
+    const moviesContainer = document.querySelector('.movies');
+    moviesContainer.innerHTML = '';
 
-        //act
-        const totalMovies = movieCounter()
+    // act
+    const totalMovies = movieCounter();
 
-        //assert
-        expect(totalMovies).toBe(0)
-    })
-})
+    // assert
+    expect(totalMovies).toBe(0);
+  });
+});
