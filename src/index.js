@@ -3,8 +3,10 @@ import "./style.css";
 import { addLike } from "./modules/store/API.js";
 import moviesDataCollection from "./modules/store/Data";
 import openPopup from "./modules/popup";
+import movieCounter from "./modules/movieCounter";
 
 const moviesList = document.querySelector(".movies");
+const moviesCountDisplayer = document.querySelector(".movies-count");
 
 const populateData = async (data) => {
   const moviesData = await data;
@@ -23,7 +25,15 @@ const populateData = async (data) => {
         `;
     moviesList.appendChild(movieCard);
   });
+}
+
+const initializeApp = async () => {
+  await populateData(moviesDataCollection());;
+  const totalMovies = movieCounter();
+  moviesCountDisplayer.textContent = totalMovies;
 };
+
+ 
 
 moviesList.addEventListener("click", (e) => {
   if (e.target.className.includes("like-button")) {
@@ -38,4 +48,4 @@ moviesList.addEventListener("click", (e) => {
   }
 });
 
-populateData(moviesDataCollection());
+initializeApp()
