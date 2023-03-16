@@ -83,6 +83,9 @@ body {
   font-size: 1em;
   font-weight: 700;
 }
+.like-button{
+  cursor: pointer;
+}
 
 .likes {
   align-self: flex-end;
