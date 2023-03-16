@@ -42,3 +42,21 @@ export const addLike = async (id) => {
   );
   return res;
 };
+
+export const addComment = async (id, name, comment) => {
+  const res = await fetch(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/iO26MOgyDZzMsAn4LSwJ/comments',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: id,
+        username: name,
+        comment,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    },
+  );
+  return res;
+};
