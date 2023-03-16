@@ -30,6 +30,7 @@ const moviesDataCollection = async (movies, likes) => {
 const populateData = async (data) => {
   const moviesData = await data;
   moviesData.forEach((item) => {
+    const likeText=item.likes > 1 ? 'likes':'like'
     const movieCard = document.createElement('div');
     movieCard.className = 'movie-card';
     movieCard.innerHTML = `
@@ -38,7 +39,7 @@ const populateData = async (data) => {
         <p class="movie-title">${item.name}</p>
         <i class="fa-regular fa-heart like-button" id = ${item.id}></i>
         </div>
-        <p class="likes"><span id="likes-${item.id}">${item.likes}</span> likes</p>
+        <p class="likes"><span id="likes-${item.id}">${item.likes}</span> ${likeText}</p>
         <button type='button' class="comment-button" id=${item.id}>comments</button>
         `;
     moviesList.appendChild(movieCard);
