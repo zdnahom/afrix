@@ -1,13 +1,12 @@
-import { getMovies, getLikes } from "./API";
+import { getMovies, getLikes } from './API.js';
 
 const moviesDataCollection = async () => {
   const movieLikes = await getLikes();
   let moviesData = await getMovies();
   moviesData = moviesData.map((item) => {
-    const foundMovie =
-      movieLikes.find(
-        (element) => Number(element.item_id) === Number(item.id)
-      ) || 0;
+    const foundMovie = movieLikes.find(
+      (element) => Number(element.item_id) === Number(item.id),
+    ) || 0;
     return {
       id: item.id,
       name: item.name,
