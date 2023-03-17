@@ -204,12 +204,14 @@ body {
 .hide {
   display: none;
 }
-@media screen and (max-width:765px){
+
+@media screen and (max-width: 765px) {
   .movies {
     grid-template-columns: auto auto;
   }
 }
-@media screen and (max-width:500px){
+
+@media screen and (max-width: 500px) {
   .movies {
     grid-template-columns: auto;
   }
