@@ -7,7 +7,7 @@ const openPopup = async (id) => {
   const movie = await getMovieDetail(id);
   if (comments.length) {
     comments = comments.map(
-      (item) => `<li>${item.creation_date} ${item.username} : ${item.comment}</li>`,
+      (item) => `<li class="comment">${item.creation_date} ${item.username} : ${item.comment}</li>`,
     );
   }
 
