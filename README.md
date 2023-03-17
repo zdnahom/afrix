@@ -8,7 +8,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
-  - [ 🚶  Project Walkthrough ](#-project-walkthrough-)
+  - [🚶 Project Walkthrough ](#-project-walkthrough-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
