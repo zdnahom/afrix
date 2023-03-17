@@ -8,6 +8,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [ 🚶  Project Walkthrough ](#-project-walkthrough-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -67,6 +68,14 @@ Afrix is a website to get info about cool movies and tv series.It is built using
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - No live demo for now.But it will be added in the near future.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Project Walkthrough -->
+
+## 🚶 Project Walkthrough <a name="project-walkthrough"></a>
+
+- [video](https://www.awesomescreenshot.com/video/15688826?key=3c654cdb9e9b3c0a67133d20cae28a89)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
