@@ -10,7 +10,7 @@
     ></script>
     <title>African best movie website homepage</title>
   </head>
-  <body onload="todayDate()">
+  <body>
     <header class="header">
       <h3 class="logo">Afrix<span class="Logo-2">Movies</span></h3>
       <div class="items">
@@ -32,16 +32,8 @@
     <footer class="footer">
       <div class="footer-items">
         <h3 class="logo">Afrix<span class="Logo-2">Movies</span></h3>
-        <p>Produced by Afrix Movies. © <em id="date"></em></p>
+        <p>Produced by Afrix Movies. © <em class="date"></em></p>
       </div>
     </footer>
-
-    <script>
-      function todayDate() {
-        var d = new Date();
-        var n = d.getFullYear() + "  ";
-        return (document.getElementById("date").innerHTML = n);
-      }
-    </script>
   </body>
 </html>

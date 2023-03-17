@@ -32,6 +32,8 @@ const initializeApp = async () => {
   await populateData(moviesDataCollection());
   const totalMovies = movieCounter();
   moviesCountDisplayer.textContent = totalMovies;
+  const date = new Date();
+  document.querySelector('.date').innerHTML = `${date.getFullYear()}  `;
 };
 
 moviesList.addEventListener('click', async (e) => {
