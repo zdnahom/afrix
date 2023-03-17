@@ -53,7 +53,11 @@ Afrix is a website to get info about cool movies and tv series.It is built using
 
 ### Key Features <a name="key-features"></a>
 
-- **Homepage**
+- **Display movies**
+- **Display comments of a selected movie**
+- **Display detail of the movie selected**
+- **Like a movie using like button**
+- **Add new Comment to a movie**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -99,7 +103,7 @@ To run the project, execute the following command:
 ### Run tests
 
 To run tests, run the following command:
-- npm test or npm watch
+- npm test 
 
 <!-- AUTHORS -->
 
@@ -118,10 +122,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
--  **Homepage**
--  **popup page**
-
-
+-  **Make the website more responsive**
+-  **Add menu popup**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
