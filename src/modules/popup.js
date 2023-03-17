@@ -25,7 +25,7 @@ const openPopup = async (id) => {
     <h2>${movie.name}</h2>
     <ul class="movie-info">
       <li><span>Network</span> : ${movie.network.name}</li>
-      <li><span>County</span> : ${movie.network.country.name}</li>
+      <li><span>Country</span> : ${movie.network.country.name}</li>
       <li><span>Genres</span> : ${movie.genres}</li>
       <li><span>Status</span> : ${movie.status}</li>
     </ul>
