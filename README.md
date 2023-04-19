@@ -67,7 +67,7 @@ Afrix is a website to get info about cool movies and tv series.It is built using
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- No live demo for now.But it will be added in the near future.
+- [see live](https://afrix-0d1m.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
